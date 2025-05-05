@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins';
+    text-decoration: none;
+}
+
+
+/*Cabecalho*/
+
+header{
+    position: fixed;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+}
+
+.header-logo img{
+    width: 120px;
+}
+
+.header-logo img:hover{
+    cursor: pointer;
+}
+
+.header-paginas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px
+}
+
+.header-paginas a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #006437;
+}
+
+.header-paginas button{
+    font-family: 'Poppins';
+    border: none;
+    background-color: #006437;
+    color: white;
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+.header-paginas button:hover{
+    cursor: pointer;
+    background-color: #004e2b;
+    transition: 0.5s;
+}
+
+/*Banner da página inicial*/
+
+.div-banner{
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url('imgs/banner-palmeiras.png');
+}
+
+.div-banner-slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    height: 100%;
+    padding-left: 100px;
+    gap: 100px;
+}
+
+.div-banner h1{
+    font-size: 40px;
+    color: white;
+}
+
+.div-banner span{
+    color: #439C7E;
+}
+
+.div-banner button{
+    font-family: 'Poppins';
+    border: none;
+    background-color: white;
+    color: #006437;
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+.div-banner button:hover{
+    cursor: pointer;
+    background-color: rgb(206, 255, 222);
+    transition: 0.5s;
+}
+
+/*.div-saiba-mais*/
+
+.div-saiba-mais{
+    width: 100%;
+    height: 100vh;  
+    background-color: #439C7E;
+}
