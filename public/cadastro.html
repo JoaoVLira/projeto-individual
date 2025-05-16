@@ -73,6 +73,39 @@
             <span>Confirmação da Senha:</span>
             <input id="confirmacao_senha_input" type="password" placeholder="******" />
           </div>
+          <div class="campo">
+            <span>Jogador Favorito:</span>
+            <select id="jogador_input">
+              <option value="Marcelo Lomba">Marcelo Lomba</option>
+              <option value="Weverton">Weverton</option>
+              <option value="Murilo">Murilo</option>
+              <option value="Naves">Naves</option>
+              <option value="Gustavo Gómez">Gustavo Gómez</option>
+              <option value="Bruno Fuchs">Bruno Fuchs</option>
+              <option value="Micael">Micael</option>
+              <option value="Vanderlan">Vanderlan</option>
+              <option value="Marcos Rocha">Marcos Rocha</option>
+              <option value="Mayke">Mayke</option>
+              <option value="Piquerez">Piquerez</option>
+              <option value="Lucas Evangelista">Lucas Evangelista</option>
+              <option value="Maurício">Maurício</option>
+              <option value="Facundo Torres">Facundo Torres</option>
+              <option value="Emi Martinez">Emi Martinez</option>
+              <option value="Richard Ríos">Richard Ríos</option>
+              <option value="Aníbal Moreno">Aníbal Moreno</option>
+              <option value="Giay">Giay</option>
+              <option value="Vanderlan (duplicado)">Vanderlan</option>
+              <option value="Felipe Anderson">Felipe Anderson</option>
+              <option value="Raphael Veiga">Raphael Veiga</option>
+              <option value="Luighi">Luighi</option>
+              <option value="Estevão">Estevão</option>
+              <option value="Bruno Rodrigues">Bruno Rodrigues</option>
+              <option value="Allan">Allan</option>
+              <option value="Flaco López">Flaco López</option>
+              <option value="Vitor Roque">Vitor Roque</option>
+              <option value="Benedetti">Benedetti</option>
+            </select>
+          </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
         <div id="div_aguardar" class="loading-div">
@@ -110,7 +143,7 @@
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
+    var jogadorVar = jogador_input.value;
 
 
     // Verificando se há algum campo em branco
@@ -119,7 +152,7 @@
       emailVar == "" ||
       senhaVar == "" ||
       confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      jogadorVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -131,18 +164,7 @@
       setInterval(sumirMensagem, 5000);
     }
 
-    // // Verificando se o código de ativação é de alguma empresa cadastrada
-    // for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-    //   if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-    //     idEmpresaVincular = listaEmpresasCadastradas[i].id
-    //     console.log("Código de ativação válido.");
-    //     break;
-    //   } else {
-    //     cardErro.style.display = "block";
-    //     mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-    //     finalizarAguardar();
-    //   }
-    // }
+
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -156,7 +178,7 @@
         nomeServer: nomeVar,
         emailServer: emailVar,
         senhaServer: senhaVar,
-        // idEmpresaVincularServer: idEmpresaVincular
+        jogadorServer: jogadorVar,
       }),
     })
       .then(function (resposta) {
@@ -186,7 +208,7 @@
     return false;
   }
 
-  
+
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
