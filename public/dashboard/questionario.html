@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/dash.css">
+</head>
+
+<body>
+    <header>
+        <img src="../assets/imgs/verdão__2_-removebg-preview.png" alt="">
+        <a href="dash.html">Dashboard</a>
+    </header>
+    <label for="input_jogador">
+        <h2>Qual o seu jogador favorito?</h2>
+    </label>
+    <select id="input_jogador">
+        <option value="Marcelo Lomba">Marcelo Lomba</option>
+        <option value="Weverton">Weverton</option>
+        <option value="Murilo">Murilo</option>
+        <option value="Naves">Naves</option>
+        <option value="Gustavo Gómez">Gustavo Gómez</option>
+        <option value="Bruno Fuchs">Bruno Fuchs</option>
+        <option value="Micael">Micael</option>
+        <option value="Vanderlan">Vanderlan</option>
+        <option value="Marcos Rocha">Marcos Rocha</option>
+        <option value="Mayke">Mayke</option>
+        <option value="Piquerez">Piquerez</option>
+        <option value="Lucas Evangelista">Lucas Evangelista</option>
+        <option value="Maurício">Maurício</option>
+        <option value="Facundo Torres">Facundo Torres</option>
+        <option value="Emi Martinez">Emi Martinez</option>
+        <option value="Richard Ríos">Richard Ríos</option>
+        <option value="Aníbal Moreno">Aníbal Moreno</option>
+        <option value="Giay">Giay</option>
+        <option value="Vanderlan (duplicado)">Vanderlan</option>
+        <option value="Felipe Anderson">Felipe Anderson</option>
+        <option value="Raphael Veiga">Raphael Veiga</option>
+        <option value="Luighi">Luighi</option>
+        <option value="Estevão">Estevão</option>
+        <option value="Bruno Rodrigues">Bruno Rodrigues</option>
+        <option value="Allan">Allan</option>
+        <option value="Flaco López">Flaco López</option>
+        <option value="Vitor Roque">Vitor Roque</option>
+        <option value="Benedetti">Benedetti</option>
+    </select>
+
+    <h2>Camiseta favorita: </h2>
+    <form id="form_camisetas">
+        <div id="div_camiseta">
+            <label for="">
+                <p>Camiseta 2025/1</p>
+                <img src="../assets/imgs/camiseta2025_1.png" alt="">
+                <input type="radio" name="camiseta" value="camiseta_2025_1">
+            </label><br>
+        </div>
+
+        <div id="div_camiseta">
+            <label for="">
+                <p>Camiseta 2025/2</p>
+                <img src="../assets/imgs/camiseta2025_2.png" alt="">
+                <input type="radio" name="camiseta" value="camiseta_2025_2">
+            </label>
+            <br>
+        </div>
+
+        <div id="div_camiseta">
+            <label for="">
+                <p>Camiseta 2024/1</p>
+                <img src="../assets/imgs/camiseta2024_1.png" alt="">
+                <input type="radio" name="camiseta" value="camiseta_2024_1">
+            </label>
+            <br>
+        </div>
+
+        <div id="div_camiseta">
+            <label for="">
+                <p>Camiseta 2024/2</p>
+                <img src="../assets/imgs/camiseta2024_2.png" alt="">
+                <input type="radio" name="camiseta" value="camiseta_2024_2">
+            </label>
+            <br>
+        </div>
+
+        <div id="div_camiseta">
+            <label for="">
+                <p>Camiseta 2023/1</p>
+                <img src="../assets/imgs/camiseta2023_1.png" alt="">
+                <input type="radio" name="camiseta" value="camiseta_2023_1">
+            </label>
+            <br>
+        </div>
+
+        <div id="div_camiseta">
+            <label for="">
+                <p>Camiseta 2023/2</p>
+                <img src="../assets/imgs/camiseta2023_2.png" alt="">
+                <input type="radio" name="camiseta" value="camiseta_2023_2">
+            </label>
+            <br>
+        </div>
+    </form>
+
+    <div id="div_formacoes">
+        <img src="../assets/imgs/formacoes_futebol.jpg" alt="">
+        <label for="slc_formacoes">
+            <h2>Escolha sua formação favorita: </h2>
+        </label>
+        <select id="slc_formacoes">
+            <option value="4-4-2">4-4-2</option>
+            <option value="4-1-2-1-2">4-1-2-1-2</option>
+            <option value="4-3-3">4-3-3</option>
+            <option value="4-5-1">4-5-1</option>
+            <option value="4-3-2-1">4-3-2-1</option>
+            <option value="4-2-3-1">4-2-3-1</option>
+            <option value="5-3-2">5-3-2</option>
+            <option value="5-4-1">5-4-1</option>
+            <option value="4-1-3-2">4-1-3-2</option>
+            <option value="3-5-2">3-5-2</option>
+        </select>
+    </div>
+
+    <div id="cardErro">
+
+    </div>
+
+    <button onclick="inserir()">inserir</button>
+</body>
+<script>
+    function inserir() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+        var jogadorVar = input_jogador.value;
+        var formacaoVar = slc_formacoes.value;
+        var camisetaVar = "";
+
+        var radios = document.getElementsByName("camiseta");
+        
+
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                camisetaVar = radios[i].value;
+                break;
+            }
+        }
+
+        // Verificando se há algum campo em branco
+        if (
+            jogadorVar == "" ||
+            camisetaVar == "" ||
+            formacaoVar == ""
+        ) {
+
+            alert("Preencha os campos! Não deixe eles em branco")
+            return false;
+        } else {
+            setInterval(sumirMensagem, 5000);
+        }
+
+        console.log("Enviando:", {
+            jogadorServer: jogadorVar,
+            camisetaServer: camisetaVar,
+            formacaoServer: formacaoVar
+        });
+
+
+        // Enviando o valor da nova input
+        fetch("/questionario/inserir", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                jogadorServer: jogadorVar,
+                camisetaServer: camisetaVar,
+                formacaoServer: formacaoVar
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000");
+
+                    //   limparFormulario();
+                    //   finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar responder o questionário";
+                }
+            })
+        //   .catch(function (resposta) {
+        //     console.log(`#ERRO: ${resposta}`);
+        //     finalizarAguardar();
+        //   });
+
+        return false;
+    }
+
+
+    function sumirMensagem() {
+        cardErro.style.display = "none";
+    }
+</script>
+
+</html>
