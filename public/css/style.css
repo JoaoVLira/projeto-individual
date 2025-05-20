@@ -171,3 +171,37 @@ footer .div_autoria_footer {
     align-items: center;
     color: #004e2b;
 }
+
+
+/*Login e Cadastro*/
+
+.login{
+    display: flex;
+}
+
+.bandeira_palmeiras{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 101vh;
+    width: 45vw;
+}
+
+.logo_login{
+    width: 300px;
+}
+
+.container{
+    width: 100%;
+}
+
+.card card-login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    width: 400px;
+}
+
