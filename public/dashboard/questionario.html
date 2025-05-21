@@ -137,6 +137,7 @@
         var jogadorVar = input_jogador.value;
         var formacaoVar = slc_formacoes.value;
         var camisetaVar = "";
+        var usuarioVar = sessionStorage.ID_USUARIO;
 
         var radios = document.getElementsByName("camiseta");
         
@@ -164,7 +165,8 @@
         console.log("Enviando:", {
             jogadorServer: jogadorVar,
             camisetaServer: camisetaVar,
-            formacaoServer: formacaoVar
+            formacaoServer: formacaoVar,
+            usuarioServer: usuarioVar
         });
 
 
@@ -177,6 +179,7 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
+                usuarioServer: usuarioVar,
                 jogadorServer: jogadorVar,
                 camisetaServer: camisetaVar,
                 formacaoServer: formacaoVar

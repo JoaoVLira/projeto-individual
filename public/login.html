@@ -25,7 +25,7 @@
         <img class="bandeira_palmeiras" src="assets/imgs/bandeira_palmeiras.png" alt="">
         <div class="container">
             <div class="card card-login">
-                <h2>Olá de volta!</h2>
+                <a href="index.html"><img class="logo_login" src="assets/imgs/verdão__2_-removebg-preview.png" alt=""></a>
                 <div class="formulario">
                     <div class="campo">
                         <span>E-mail:</span>
@@ -36,6 +36,7 @@
                         <input id="senha_input" type="password" placeholder="******">
                     </div>
                     <button class="botao" onclick="entrar()">Entrar</button>
+                    <p>Não tem uma conta? <a class="acessar_cadastro" href="cadastro.html">Clique aqui</a></p>
                 </div>
 
                 <div class="alerta_erro">
@@ -98,9 +99,9 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.EMAIL_USUARIO = json[0].email;
+                    sessionStorage.NOME_USUARIO = json[0].nome;
+                    sessionStorage.ID_USUARIO = json[0].id;
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";

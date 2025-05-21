@@ -3,7 +3,7 @@ var questionarioModel = require("../models/questionarioModel");
 function inserir(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
-
+    var usuario = req.body.usuarioServer;
     var jogador = req.body.jogadorServer;
     var camiseta = req.body.camisetaServer;
     var formacao = req.body.formacaoServer;
@@ -18,7 +18,7 @@ function inserir(req, res) {
     }else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        questionarioModel.inserir(jogador, camiseta, formacao)
+        questionarioModel.inserir(usuario, jogador, camiseta, formacao)
             .then(
                 function (resultado) {
                     res.json(resultado);
