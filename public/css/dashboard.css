@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins';
+    text-decoration: none;
+    background: linear-gradient(180deg, #0D6849 0%, #439C7E 100%);
+}
+
+
+/*Cabecalho*/
+
+header {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+}
+
+a:hover {
+    filter: brightness(0.5);
+    transition: 0.5s;
+}
+
+.header-logo img {
+    width: 120px;
+}
+
+.header-paginas {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 500px
+}
+
+.header-paginas a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #006437;
+}
+
+header button {
+    font-family: 'Poppins';
+    border: none;
+    background-color: #006437;
+    color: white;
+    width: 130px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+.header-paginas button:hover {
+    cursor: pointer;
+    background-color: #004e2b;
+    transition: 0.5s;
+}
+
+/* Fim do cabeçalho */
+
+/* Questionário */
+
+h1 {
+    font-size: 40px;
+    padding: 50px;
+    text-align: center;
+    color: white;
+}
+
+label {
+    padding: 15px;
+}
+
+.div_perguntas {
+    justify-content: center;
+}
+
+.div_centralizar_pergunta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* jogador_favorito */
+
+.div_pergunta_jogador {
+    display: flex;
+    flex-direction: column;
+    background-color: #094B35;
+    color: white;
+    padding: 2em;
+    border-radius: 16px;
+    width: 600px;
+    margin: 2em auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+#select_jogador {
+    height: 50px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+#select_jogador:hover {
+    cursor: pointer;
+}
+
+/* camiseta_favorita */
+
+.div_pergunta_camiseta {
+    height: auto;
+    width: 60%;
+    padding: 20px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #094B35;
+}
+
+.div_pergunta_camiseta h2 {
+    text-align: center;
+    color: white;
+}
+
+#form_camisetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#div_camiseta {
+    text-align: center;
+    display: inline;
+    justify-content: center;
+    border-radius: 20px;
+    margin-top: 15px;
+    background-color: white;
+}
+
+#div_camiseta:hover {
+    cursor: pointer;
+    background-color: rgb(211, 211, 211);
+    transition: 0.5s;
+}
+
+#div_camiseta img {
+    height: 190px;
+    width: 200px;
+}
+
+#div_camiseta p {
+    color: #004e2b;
+}
+
+/* formacao_favorita */
+
+.div_formacao {
+    display: flex;
+    flex-direction: column;
+    background-color: #094B35;
+    color: white;
+    padding: 2em;
+    border-radius: 16px;
+    width: 600px;
+    margin: 2em auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+#select_formacao {
+    height: 50px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 12px;
+}
+
+#select_formacao:hover {
+    cursor: pointer;
+}
+
+.div_formacao img {
+    border-radius: 20px;
+}
+
+button {
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-weight: 500;
+    width: 10em;
+    background-color: white;
+    color: #006437;
+    gap: 15px;
+    padding: 10px 20px;
+    margin: 30px;
+    cursor: pointer;
+    border-radius: 12px;
+    border: 0;
+}
+
+button:hover {
+    background-color: rgb(211, 211, 211);
+    transition: 0.5s;
+}
+
+.div_botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

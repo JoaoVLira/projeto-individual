@@ -5,110 +5,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../css/dash.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 
 <body>
+    <!-- cabeçalho -->
     <header>
-        <img src="../assets/imgs/verdão__2_-removebg-preview.png" alt="">
-        <a href="dash.html">Dashboard</a>
+        <div class="header-logo">
+            <img src="../assets/imgs/verdão__2_-removebg-preview.png" alt="logo-verdao-forum">
+        </div>
+        <div class="header-paginas">
+            <a href="questionario.html">
+                <p>Questionário</p>
+            </a>
+            <img src="../assets/icon/Line 1.png" alt="">
+            <a href="dashboard.html">
+                <p>Dashboard</p>
+            </a>
+        </div>
+        <a href="../index.html"><img src="../assets/icon/icon_sair.png" alt=""></a>
     </header>
-    <label for="input_jogador">
-        <h2>Qual o seu jogador favorito?</h2>
-    </label>
-    <select id="input_jogador">
-        <option value="Marcelo Lomba">Marcelo Lomba</option>
-        <option value="Weverton">Weverton</option>
-        <option value="Murilo">Murilo</option>
-        <option value="Naves">Naves</option>
-        <option value="Gustavo Gómez">Gustavo Gómez</option>
-        <option value="Bruno Fuchs">Bruno Fuchs</option>
-        <option value="Micael">Micael</option>
-        <option value="Vanderlan">Vanderlan</option>
-        <option value="Marcos Rocha">Marcos Rocha</option>
-        <option value="Mayke">Mayke</option>
-        <option value="Piquerez">Piquerez</option>
-        <option value="Lucas Evangelista">Lucas Evangelista</option>
-        <option value="Maurício">Maurício</option>
-        <option value="Facundo Torres">Facundo Torres</option>
-        <option value="Emi Martinez">Emi Martinez</option>
-        <option value="Richard Ríos">Richard Ríos</option>
-        <option value="Aníbal Moreno">Aníbal Moreno</option>
-        <option value="Giay">Giay</option>
-        <option value="Vanderlan (duplicado)">Vanderlan</option>
-        <option value="Felipe Anderson">Felipe Anderson</option>
-        <option value="Raphael Veiga">Raphael Veiga</option>
-        <option value="Luighi">Luighi</option>
-        <option value="Estevão">Estevão</option>
-        <option value="Bruno Rodrigues">Bruno Rodrigues</option>
-        <option value="Allan">Allan</option>
-        <option value="Flaco López">Flaco López</option>
-        <option value="Vitor Roque">Vitor Roque</option>
-        <option value="Benedetti">Benedetti</option>
-    </select>
 
-    <h2>Camiseta favorita: </h2>
-    <form id="form_camisetas">
-        <div id="div_camiseta">
-            <label for="">
-                <p>Camiseta 2025/1</p>
-                <img src="../assets/imgs/camiseta2025_1.png" alt="">
-                <input type="radio" name="camiseta" value="camiseta_2025_1">
-            </label><br>
-        </div>
 
-        <div id="div_camiseta">
-            <label for="">
-                <p>Camiseta 2025/2</p>
-                <img src="../assets/imgs/camiseta2025_2.png" alt="">
-                <input type="radio" name="camiseta" value="camiseta_2025_2">
+    <!-- Fim do cabeçalho -->
+
+    <h1>Questionário</h1>
+    <div class="div_centralizar_pergunta">
+        <div class="div_pergunta_jogador">
+            <label for="select_jogador">
+                <h2>Qual o seu jogador favorito?</h2>
             </label>
-            <br>
+            <select id="select_jogador">
+                <option value="Marcelo Lomba">Marcelo Lomba</option>
+                <option value="Weverton">Weverton</option>
+                <option value="Murilo">Murilo</option>
+                <option value="Naves">Naves</option>
+                <option value="Gustavo Gómez">Gustavo Gómez</option>
+                <option value="Bruno Fuchs">Bruno Fuchs</option>
+                <option value="Micael">Micael</option>
+                <option value="Vanderlan">Vanderlan</option>
+                <option value="Marcos Rocha">Marcos Rocha</option>
+                <option value="Mayke">Mayke</option>
+                <option value="Piquerez">Piquerez</option>
+                <option value="Lucas Evangelista">Lucas Evangelista</option>
+                <option value="Maurício">Maurício</option>
+                <option value="Facundo Torres">Facundo Torres</option>
+                <option value="Emi Martinez">Emi Martinez</option>
+                <option value="Richard Ríos">Richard Ríos</option>
+                <option value="Aníbal Moreno">Aníbal Moreno</option>
+                <option value="Giay">Giay</option>
+                <option value="Felipe Anderson">Felipe Anderson</option>
+                <option value="Raphael Veiga">Raphael Veiga</option>
+                <option value="Luighi">Luighi</option>
+                <option value="Estevão">Estevão</option>
+                <option value="Bruno Rodrigues">Bruno Rodrigues</option>
+                <option value="Allan">Allan</option>
+                <option value="Flaco López">Flaco López</option>
+                <option value="Vitor Roque">Vitor Roque</option>
+                <option value="Benedetti">Benedetti</option>
+            </select>
         </div>
+    </div>
 
-        <div id="div_camiseta">
-            <label for="">
-                <p>Camiseta 2024/1</p>
-                <img src="../assets/imgs/camiseta2024_1.png" alt="">
-                <input type="radio" name="camiseta" value="camiseta_2024_1">
+
+    <div class="div_centralizar_pergunta">
+        <div class="div_pergunta_camiseta">
+            <label>
+                <h2>Selecione sua camiseta favorita:</h2>
             </label>
-            <br>
-        </div>
 
-        <div id="div_camiseta">
-            <label for="">
-                <p>Camiseta 2024/2</p>
-                <img src="../assets/imgs/camiseta2024_2.png" alt="">
-                <input type="radio" name="camiseta" value="camiseta_2024_2">
-            </label>
-            <br>
-        </div>
+            <form id="form_camisetas">
+                <label id="div_camiseta">
+                    <img src="../assets/imgs/camiseta2025_1.png" alt="">
+                    <p>Temporada 2025<br>
+                        Uniforme 1</p>
+                    <input type="radio" name="camiseta" value="camiseta_2025_1">
+                </label>
 
-        <div id="div_camiseta">
-            <label for="">
-                <p>Camiseta 2023/1</p>
-                <img src="../assets/imgs/camiseta2023_1.png" alt="">
-                <input type="radio" name="camiseta" value="camiseta_2023_1">
-            </label>
-            <br>
-        </div>
+                <label id="div_camiseta">
+                    <img src="../assets/imgs/camiseta2025_2.png" alt="">
+                    <p>
+                    <p>Temporada 2025<br>
+                        Uniforme 2</p>
+                    </p>
+                    <input type="radio" name="camiseta" value="camiseta_2025_2">
+                    <br>
+                </label>
 
-        <div id="div_camiseta">
-            <label for="">
-                <p>Camiseta 2023/2</p>
-                <img src="../assets/imgs/camiseta2023_2.png" alt="">
-                <input type="radio" name="camiseta" value="camiseta_2023_2">
-            </label>
-            <br>
-        </div>
-    </form>
+                <label id="div_camiseta">
+                    <img src="../assets/imgs/camiseta2024_1.png" alt="">
+                    <p>Temporada 2024<br>
+                        Uniforme 1</p>
+                    <input type="radio" name="camiseta" value="camiseta_2024_1">
+                    <br>
+                </label>
 
-    <div id="div_formacoes">
+                <label id="div_camiseta">
+                    <img src="../assets/imgs/camiseta2024_2.png" alt="">
+                    <p>Temporada 2024<br>
+                        Uniforme 2</p>
+                    <input type="radio" name="camiseta" value="camiseta_2024_2">
+                </label>
+
+                <label id="div_camiseta">
+                    <img src="../assets/imgs/camiseta2023_1.png" alt="">
+                    <p>Temporada 2023<br>
+                        Uniforme 1</p>
+                    <input type="radio" name="camiseta" value="camiseta_2023_1">
+                </label>
+
+                <label id="div_camiseta">
+                    <img src="../assets/imgs/camiseta2023_2.png" alt="">
+                    <p>Temporada 2023<br>
+                        Uniforme 2</p>
+                    <input type="radio" name="camiseta" value="camiseta_2023_2">
+                    </dlabel>
+            </form>
+        </div>
+    </div>
+
+    <div class="div_formacao">
         <img src="../assets/imgs/formacoes_futebol.jpg" alt="">
-        <label for="slc_formacoes">
+        <label for="select_formacao">
             <h2>Escolha sua formação favorita: </h2>
         </label>
-        <select id="slc_formacoes">
+        <select id="select_formacao">
             <option value="4-4-2">4-4-2</option>
             <option value="4-1-2-1-2">4-1-2-1-2</option>
             <option value="4-3-3">4-3-3</option>
@@ -122,25 +143,22 @@
         </select>
     </div>
 
-    <div id="cardErro">
-
+    <div class="div_botao">
+        <button onclick="inserir()">inserir</button>
     </div>
-
-    <button onclick="inserir()">inserir</button>
 </body>
 <script>
     function inserir() {
-        // aguardar();
 
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
-        var jogadorVar = input_jogador.value;
-        var formacaoVar = slc_formacoes.value;
+        var jogadorVar = select_jogador.value;
+        var formacaoVar = select_formacao.value;
         var camisetaVar = "";
         var usuarioVar = sessionStorage.ID_USUARIO;
 
         var radios = document.getElementsByName("camiseta");
-        
+
 
         for (var i = 0; i < radios.length; i++) {
             if (radios[i].checked) {
@@ -158,8 +176,6 @@
 
             alert("Preencha os campos! Não deixe eles em branco")
             return false;
-        } else {
-            setInterval(sumirMensagem, 5000);
         }
 
         console.log("Enviando:", {
@@ -189,32 +205,18 @@
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
-                    cardErro.style.display = "block";
 
-                    mensagem_erro.innerHTML =
-                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                    alert("O questionário foi respondido com sucesso, agora você será redirecionado para a dashboard!")
 
                     setTimeout(() => {
-                        window.location = "login.html";
-                    }, "2000");
+                        window.location = "dashboard.html";
+                    }, "2500");
 
-                    //   limparFormulario();
-                    //   finalizarAguardar();
                 } else {
                     throw "Houve um erro ao tentar responder o questionário";
                 }
             })
-        //   .catch(function (resposta) {
-        //     console.log(`#ERRO: ${resposta}`);
-        //     finalizarAguardar();
-        //   });
-
         return false;
-    }
-
-
-    function sumirMensagem() {
-        cardErro.style.display = "none";
     }
 </script>
 

@@ -18,3 +18,7 @@ CREATE TABLE respostas (
     formacao_favorita VARCHAR(30),
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
+
+select * from usuario;
+
+select * from respostas;
