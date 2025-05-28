@@ -22,7 +22,16 @@ function cadastrar(nome, email, senha, jogador) {
     return database.executar(instrucaoSql);
 }
 
+// function listar(){
+//     var instrucaoSql = `
+//         SELECT * FROM USUARIO
+//     `;
+
+//     return database.executar(instrucaoSql);
+// }
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    // listar
 };

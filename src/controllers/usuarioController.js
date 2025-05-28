@@ -53,7 +53,7 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else if (jogador == undefined) {
         res.status(400).send("Seu jogador Favorito está undefined!");
-    }else {
+    } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nome, email, senha, jogador)
@@ -74,7 +74,14 @@ function cadastrar(req, res) {
     }
 }
 
+// function listar(req, res) {
+//     usuarioModel.listar().then((resultado) => {
+//         res.status(200).json(resultado);
+//     });
+// }
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    // listar
 }
