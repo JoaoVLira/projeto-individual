@@ -15,6 +15,7 @@ body {
 /*Cabecalho*/
 
 header {
+    position: fixed;
     background-color: white;
     display: flex;
     justify-content: space-around;
@@ -118,7 +119,7 @@ header button {
     justify-content: center;
     width: 100%;
     height: auto;
-    background-color: #439C7E;
+    background: linear-gradient(180deg, #439C7E 0%, #004124 100%);
 }
 
 #div_saiba_mais h1 {
@@ -128,45 +129,88 @@ header button {
 }
 
 #div_saiba_mais h3 {
-    margin: 30px;
-    text-align: center;
     font-size: 25px;
-    color: #006437;
+    color: white;
 }
 
 .div_info {
     width: 80%;
-    padding: 30px;
-    margin: 50px;
-    background-color: white;
+    padding: 20px;
+    margin: 60px;
     border-radius: 20px;
+    color: white;
 }
 
 .div_info p {
-     margin: 50px;
-     text-align: justify;
+    margin: 50px;
+    text-align: justify;
 }
 
 .div_imagem_texto {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin-left: 50px;
 }
 
-.img_saiba_objetivo{
-    width: 500px;
+.div_imagem_texto hr {
+    height: 25em;
 }
 
-.img_saiba_palmeiras{
-    height: auto;
-    width: 650px;
+.img_saiba_objetivo {
+    width: 40em;
     border-radius: 20px;
+}
+
+.img_saiba_palmeiras {
+    height: 20em;
+    width: auto;
+}
+
+.img_sobre_mim {
+    width: 20em;
+    height: auto;
+    border-radius: 15px;
+}
+
+.p_sobre {
+    width: 650px;
 }
 
 /*div_escudos*/
 #div_escudos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100vh;
-    background-color: #006437;
+    background-color: #004124;
+    color: white;
+}
+
+#div_escudos h1 {
+    margin: 100px;
+}
+
+.div_container_escudos {
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    gap: 100px;
+}
+
+.div_info_escudo {
+    width: 10rem;
+    transition: transform 1s;
+
+    &:hover {
+        transform: scale(1.2);
+    }
 }
 
 /*Footer*/
