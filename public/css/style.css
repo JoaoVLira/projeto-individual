@@ -22,6 +22,7 @@ header {
     align-items: center;
     height: 120px;
     width: 100%;
+    z-index: 99;
 }
 
 .header-logo img {
@@ -212,6 +213,41 @@ header button {
         transform: scale(1.2);
     }
 }
+
+/* div_idolos */
+#div_idolos {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(180deg, #004124 0%, #439C7E 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: white;
+}
+
+.div_info_idolos {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 100px;
+}
+
+.div_info_idolos p {
+    color: white;
+    width: 900px;
+    text-align: justify;
+}
+
+.div_info_idolos h1{
+    color: white;
+}
+
+.div_info_idolos img{
+    border-radius: 20px;
+    box-shadow: 15px 20px rgba(0, 0, 0, 0.356);
+}
+
 
 /*Footer*/
 
