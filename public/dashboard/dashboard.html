@@ -4,44 +4,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exemplo de como Plotar Gráficos</title>
+  <title>Verdão Fórum | Dashboard</title>
   <!-- Incluindo a biblioteca Chart.js para desenhar gráficos -->
-   <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="icon" href="../assets/imgs/escudo_palmeiras.png">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-      <header>
-        <div class="header-logo">
-            <img src="../assets/imgs/verdão__2_-removebg-preview.png" alt="logo-verdao-forum">
+<header>
+  <div class="header-logo">
+    <img src="../assets/imgs/verdão__2_-removebg-preview.png" alt="logo-verdao-forum">
+  </div>
+  <div class="header-paginas">
+    <a href="questionario.html">
+      <p>Questionário</p>
+    </a>
+    <img src="../assets/icon/Line 1.png" alt="">
+    <a href="dashboard.html">
+      <p>Dashboard</p>
+      <hr>
+    </a>
+  </div>
+  <a href="../index.html"><img src="../assets/icon/icon_sair.png" alt=""></a>
+</header>
+
+<body onload="obterDadosJogadores(); obterDadosCamisas(); obterDadosFormacoes(); obterDadosIdolos();">
+  <!-- Chamando a função obterDados ao carregar a página -->
+  <div class="div_container_graficos">
+
+    <div>
+      <div id="div_kpi">
+        <h3>Seu jogador Favorito</h3>
+      </div>
+
+      <div id="div_kpi">
+        <h3>Sua Formação favorita</h3>
+      </div>
+
+      <div id="div_kpi">
+        <h3>Seu uniforme favorito</h3>
+      </div>
+
+      <div id="div_kpi">
+        <h3>Seu ídolo favorito</h3>
+      </div>
+    </div>
+
+    <div class="div_jogadores_formacoes">
+      <div>
+        <div class="div_grafico">
+          <h3>Jogadores votados pela torcida</h3>
+          <canvas id="graficoJogadores"></canvas>
         </div>
-        <div class="header-paginas">
-            <a href="questionario.html">
-                <p>Questionário</p>
-            </a>
-            <img src="../assets/icon/Line 1.png" alt="">
-            <a href="dashboard.html">
-                <p>Dashboard</p>
-            </a>
+
+        <div class="div_grafico">
+          <h3>Camisas votadas pela torcida</h3>
+          <canvas id="graficoCamisas"></canvas>
         </div>
-        <a href="../index.html"><img src="../assets/icon/icon_sair.png" alt=""></a>
-    </header>
 
-<body onload="obterDadosJogadores(); obterDadosCamisas(); obterDadosFormacoes();"> <!-- Chamando a função obterDados ao carregar a página -->
+      </div>
+      <div>
+        <div class="div_grafico">
+          <h3>Formações votadas pela torcida</h3>
+          <canvas id="graficoFormacoes"></canvas>
+        </div>
 
-  <h1>Dashboard</h1>
-
-  <div>
-    <!-- Elemento canvas onde o gráfico de linha será desenhado -->
-    <canvas id="linha"></canvas>
-    <!-- Elemento canvas onde o gráfico de barra será desenhado -->
-    <canvas id="barra"></canvas>
-
-    <!-- Gráfico de camisas -->
-    <canvas id="graficoCamisas"></canvas>
-
-    <canvas id="graficoFormacoes"></canvas>
-
+        <div class="div_grafico">
+          <h3>Ídolos votados pela torcida</h3>
+          <canvas id="graficoIdolos"></canvas>
+        </div>
+      </div>
+    </div>
 
   </div>
+
+
+
 
 </body>
 
@@ -92,8 +129,20 @@
       })
   }
 
+  function obterDadosIdolos() {
+    fetch('/respostas/obterDadosIdolos')
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        plotarGraficoIdolos(data);
+      })
+      .catch(function (err) {
+        console.log(err);
+      })
+  }
 
-  // Função para plotar o gráfico de barra
+  // Função para plotar o gráfico de graficoJogadores
   function plotarGraficoJogadores(dados) {
 
     var votos = [];
@@ -106,20 +155,20 @@
     }
 
     // Capturando o elemento canvas pelo id 
-    var ctx = document.getElementById('barra').getContext('2d');
-    // Criando o gráfico de barra usando o Chart.js
+    var ctx = document.getElementById('graficoJogadores').getContext('2d');
+    // Criando o gráfico de graficoJogadores usando o Chart.js
     var myChart = new Chart(ctx, {
       type: 'bar', // Tipo de gráfico: barra
       data: { // Dados para o gráfico
         labels: jogadores, // Rótulos no eixo X
         datasets: [{
-          label: 'Votos', // Nome do conjunto de dados
+          label: 'Quantidade de votos', // Nome do conjunto de dados
           data: votos, // Dados dos votos
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
+            '#439C7E', // Cor de fundo das barras
           ],
           borderColor: [
-            'rgba(255, 99, 132, 1)', // Cor da borda das barras
+            '#439C7E', // Cor da borda das barras
           ],
           borderWidth: 1 // Largura da borda das barras
         }]
@@ -127,8 +176,7 @@
     });
   }
 
-
-    // Função para plotar o gráfico de linha
+  // Função para plotar o gráfico de linha
   function plotarGraficoCamisas(dados) {
 
     // Separando os rótulos (labels) e os dados dos votos
@@ -146,28 +194,25 @@
     var ctx = document.getElementById('graficoCamisas').getContext('2d');
     // Criando o gráfico de linha usando o Chart.js
     var myChart = new Chart(ctx, {
-      type: 'pie', // Tipo de gráfico: linha
+      type: 'bar', // Tipo de gráfico: barra
       data: { // Dados para o gráfico
         labels: camisetas_favoritas, // Rótulos no eixo X
         datasets: [{
-          label: 'Votos', // Nome do conjunto de dados
+          label: 'Quantidade de votos', // Nome do conjunto de dados
           data: votos, // Dados dos votos
           backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+            '#004124', // Cor de fundo das barras
           ],
           borderColor: [
-            'rgba(255, 99, 132, 1)', // Cor da borda das linhas
+            '#004124', // Cor da borda das barras
           ],
-          borderWidth: 1 // Largura da borda das linhas
+          borderWidth: 1 // Largura da borda das barras
         }]
       },
     });
   }
 
-
-  function plotarGraficoFormacoes(dados){
+  function plotarGraficoFormacoes(dados) {
     var votos = [];
     var formacoes = [];
 
@@ -185,18 +230,52 @@
       data: { // Dados para o gráfico
         labels: formacoes, // Rótulos no eixo X
         datasets: [{
-          label: 'Votos', // Nome do conjunto de dados
+          label: 'Quantidade de votos', // Nome do conjunto de dados
           data: votos, // Dados dos votos
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)', // Cor de fundo das barras
+            '#004124', // Cor de fundo das barras
           ],
           borderColor: [
-            'rgba(255, 99, 132, 1)', // Cor da borda das barras
+            '#004124', // Cor da borda das barras
           ],
           borderWidth: 1 // Largura da borda das barras
         }]
       },
     });
   }
-  
+
+  function plotarGraficoIdolos(dados) {
+
+    var votos = [];
+    var idolos = [];
+
+    // Preenchendo os arrays com os dados
+    for (var i = 0; i < dados.length; i++) {
+      votos.push(dados[i].votos);
+      idolos.push(dados[i].idolos);
+    }
+
+    // Capturando o elemento canvas pelo id 
+    var ctx = document.getElementById('graficoIdolos').getContext('2d');
+    // Criando o gráfico de graficoJogadores usando o Chart.js
+    var myChart = new Chart(ctx, {
+      type: 'bar', // Tipo de gráfico: barra
+      data: { // Dados para o gráfico
+        labels: idolos, // Rótulos no eixo X
+        datasets: [{
+          label: 'Quantidade de votos', // Nome do conjunto de dados
+          data: votos, // Dados dos votos
+          backgroundColor: [
+            '#439C7E', // Cor de fundo das barras
+          ],
+          borderColor: [
+            '#439C7E', // Cor da borda das barras
+          ],
+          borderWidth: 1 // Largura da borda das barras
+        }]
+      },
+    });
+  }
+
+
 </script>

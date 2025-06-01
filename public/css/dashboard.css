@@ -8,7 +8,7 @@
 body {
     font-family: 'Poppins';
     text-decoration: none;
-    background: linear-gradient(180deg, #0D6849 0%, #439C7E 100%);
+    background-color: rgb(207, 207, 207);
 }
 
 
@@ -40,11 +40,19 @@ a:hover {
 }
 
 .header-paginas a {
+    width: 50px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     color: #006437;
+    flex-direction: column;
+}
+
+hr {
+    color: #094B35;
+    width: 100px;
 }
 
 header button {
@@ -67,12 +75,13 @@ header button {
 
 /* Questionário */
 
-h1 {
-    font-size: 40px;
-    padding: 50px;
+/* h1 {
+    font-size: 30px;
+    margin: 30px;
+    width: 100px;
     text-align: center;
-    color: white;
-}
+    color: #004e2b;
+} */
 
 label {
     padding: 15px;
@@ -93,8 +102,8 @@ label {
 .div_pergunta_jogador {
     display: flex;
     flex-direction: column;
-    background-color: #094B35;
-    color: white;
+    background-color: white;
+    color: #094B35;
     padding: 2em;
     border-radius: 16px;
     width: 600px;
@@ -123,12 +132,12 @@ label {
     padding: 20px;
     border-radius: 30px;
     font-family: 'Poppins', sans-serif;
-    background-color: #094B35;
+    background-color: white;
 }
 
 .div_pergunta_camiseta h2 {
     text-align: center;
-    color: white;
+    color: #094B35;
 }
 
 #form_camisetas {
@@ -141,14 +150,14 @@ label {
     text-align: center;
     display: inline;
     justify-content: center;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-top: 15px;
-    background-color: white;
+    background-color: #063123;
 }
 
 #div_camiseta:hover {
     cursor: pointer;
-    background-color: rgb(211, 211, 211);
+    filter: brightness(0.5);
     transition: 0.5s;
 }
 
@@ -158,7 +167,7 @@ label {
 }
 
 #div_camiseta p {
-    color: #004e2b;
+    color: white;
 }
 
 /* formacao_favorita */
@@ -166,8 +175,8 @@ label {
 .div_formacao {
     display: flex;
     flex-direction: column;
-    background-color: #094B35;
-    color: white;
+    background-color: white;
+    color: #094B35;
     padding: 2em;
     border-radius: 16px;
     width: 600px;
@@ -192,13 +201,141 @@ label {
     border-radius: 20px;
 }
 
+
+/*Idolo Favorito*/
+
+.div_pergunta_idolo {
+    height: auto;
+    width: 70%;
+    padding: 20px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+}
+
+.div_pergunta_idolo h2 {
+    text-align: center;
+    color: #094B35;
+}
+
+#form_idolo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#form_idolo label:hover {
+    cursor: pointer;
+    filter: brightness(0.5);
+    transition: 0.5s;
+}
+
+.div_input_idolo {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    background-color: #094B35;
+    width: auto;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#div_idolo_ademir {
+    color: white;
+    background-image: url(../assets/imgs/idolo_ademir.png);
+    width: 15em;
+    height: 19em;
+    text-align: center;
+    display: inline;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#div_idolo_alex {
+    color: white;
+    background-image: url(../assets/imgs/idolo_alex.png);
+    width: 15em;
+    height: 19em;
+    text-align: center;
+    display: inline;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#div_idolo_dudu {
+    color: white;
+    background-image: url(../assets/imgs/idolo_dudu.png);
+    width: 15em;
+    height: 19em;
+    text-align: left;
+    display: inline;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#div_idolo_edmundo {
+    color: white;
+    background-image: url(../assets/imgs/idolo_edmundo.png);
+    width: 15em;
+    height: 19em;
+    text-align: left;
+    display: inline;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#div_idolo_evair {
+    color: white;
+    background-image: url(../assets/imgs/idolo_evair.png);
+    width: 15em;
+    height: 19em;
+    text-align: left;
+    display: inline;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#div_idolo_marcos {
+    color: white;
+    background-image: url(../assets/imgs/idolo_marcos.png);
+    width: 15em;
+    height: 19em;
+    text-align: left;
+    display: inline;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#div_idolo_veiga {
+    color: white;
+    background-image: url(../assets/imgs/idolo_veiga.png);
+    width: 15em;
+    height: 19em;
+    text-align: left;
+    display: inline;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+#div_idolo p {
+    color: #004e2b;
+}
+
+
 button {
     font-family: 'Poppins';
     font-size: 20px;
     font-weight: 500;
     width: 10em;
-    background-color: white;
-    color: #006437;
+    background-color: #094B35;
+    color: white;
     gap: 15px;
     padding: 10px 20px;
     margin: 30px;
@@ -208,7 +345,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(211, 211, 211);
+    background-color: #063022;
     transition: 0.5s;
 }
 
@@ -216,4 +353,56 @@ button:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* Dashboard */
+
+.div_container_graficos {
+    width: 80%;
+    margin-top: 50px;
+}
+
+.div_grafico {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    color: #004e2b;
+    width: 33em;
+    height: 20em;
+    margin-bottom: 20px;
+    border-radius: 40px;
+}
+
+/* Define tamanho mais proporcional para os gráficos */
+.div_container_graficos canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.div_container_graficos {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.div_jogadores_formacoes {
+    display: flex;
+    gap: 20px;
+}
+
+#div_kpi {
+    width: 30em;
+    height: 8em;
+    background-color: white;
+    margin: 50px;
+    border-radius: 20px;
+}
+
+#div_kpi h3 {
+    color: #004e2b;
+    text-align: center;
 }

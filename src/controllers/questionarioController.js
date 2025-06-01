@@ -1,5 +1,7 @@
 var questionarioModel = require("../models/questionarioModel");
 
+var questionarioModel = require("../models/questionarioModel");
+
 function inserir(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
 
@@ -7,6 +9,7 @@ function inserir(req, res) {
     var jogador = req.body.jogadorServer;
     var camiseta = req.body.camisetaServer;
     var formacao = req.body.formacaoServer;
+    var idolo = req.body.idoloServer;
 
     // Faça as validações dos valores
     if (jogador == undefined) {
@@ -15,27 +18,35 @@ function inserir(req, res) {
         res.status(400).send("Sua camiseta favorita está undefined!");
     } else if (formacao == undefined) {
         res.status(400).send("Sua formação favorita está undefined!");
-    }else {
+    } else if (idolo == undefined) {
+        res.status(400).send("Seu ídolo favorito está undefined!");
+    } else {
 
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        questionarioModel.inserir(usuario, jogador, camiseta, formacao)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
+        // Verifica se o usuário já respondeu o questionário
+        questionarioModel.verificarRespostaExistente(usuario)
+            .then(function (resposta) {
+                if (resposta.length > 0) {
+                    // Já existe resposta → faz UPDATE
+                    return questionarioModel.atualizar(usuario, jogador, camiseta, formacao, idolo);
+                } else {
+                    // Ainda não respondeu → faz INSERT
+                    return questionarioModel.inserir(usuario, jogador, camiseta, formacao, idolo);
                 }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
+            })
+            .then(function (resultado) {
+                res.json(resultado);
+            })
+            .catch(function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao salvar a resposta! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            });
     }
 }
 
 module.exports = {
     inserir
-}
+};

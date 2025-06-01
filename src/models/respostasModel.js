@@ -30,9 +30,20 @@ function obterDadosFormacoes() {
     return database.executar(instrucao);
 }
 
+function obterDadosIdolos() {
+    var instrucao = `
+        SELECT idolo_favorito AS idolos, COUNT(*) AS votos
+        FROM respostas
+        GROUP BY idolo_favorito
+        ORDER BY votos DESC;
+    `;
+    return database.executar(instrucao);
+}
+
 
 module.exports = {
     obterDadosJogadores,
     obterDadosCamisas,
-    obterDadosFormacoes
+    obterDadosFormacoes,
+    obterDadosIdolos
 };

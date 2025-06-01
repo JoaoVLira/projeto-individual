@@ -6,7 +6,7 @@ function obterDadosJogadores(req, res) {
             res.status(200).json(resultado);
         })
         .catch(function (erro) {
-            console.log("❌ Erro no controller:", erro.sqlMessage);
+            console.log("Erro no controller:", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
 }
@@ -17,7 +17,7 @@ function obterDadosCamisas(req, res) {
             res.status(200).json(resultado);
         })
         .catch(function (erro) {
-            console.log("❌ Erro ao buscar camisas:", erro.sqlMessage);
+            console.log("Erro ao buscar camisas:", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
 }
@@ -28,7 +28,18 @@ function obterDadosFormacoes(req, res) {
             res.status(200).json(resultado);
         })
         .catch(function (erro) {
-            console.log("❌ Erro ao buscar formações:", erro.sqlMessage);
+            console.log("Erro ao buscar formações:", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function obterDadosIdolos(req, res) {
+    respostasModel.obterDadosIdolos()
+        .then(function (resultado) {
+            res.status(200).json(resultado);
+        })
+        .catch(function (erro) {
+            console.log("Erro ao buscar formações:", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
 }
@@ -38,5 +49,6 @@ function obterDadosFormacoes(req, res) {
 module.exports = {
     obterDadosJogadores,
     obterDadosCamisas,
-    obterDadosFormacoes
+    obterDadosFormacoes,
+    obterDadosIdolos
 }

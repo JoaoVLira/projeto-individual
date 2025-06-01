@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Verdão Fórum | Questionário</title>
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="icon" href="../assets/imgs/escudo_palmeiras.png">
 </head>
 
 <body>
@@ -17,6 +18,7 @@
         <div class="header-paginas">
             <a href="questionario.html">
                 <p>Questionário</p>
+                <hr>
             </a>
             <img src="../assets/icon/Line 1.png" alt="">
             <a href="dashboard.html">
@@ -28,8 +30,6 @@
 
 
     <!-- Fim do cabeçalho -->
-
-    <h1>Questionário</h1>
     <div class="div_centralizar_pergunta">
         <div class="div_pergunta_jogador">
             <label for="select_jogador">
@@ -143,6 +143,64 @@
         </select>
     </div>
 
+    <div class="div_centralizar_pergunta">
+        <div class="div_pergunta_idolo">
+            <label>
+                <h2>Selecione seu ídolo favorito:</h2>
+            </label>
+            <form id="form_idolo">
+                <label id="div_idolo_ademir">
+                    <div class="div_input_idolo">
+                        <h3>Ademir da Guia</h3>
+                        <input type="radio" name="idolo" value="Ademir da guia">
+                    </div>
+                </label>
+
+                <label id="div_idolo_alex">
+                    <div class="div_input_idolo">
+                        <h3>Alex</h3>
+                        <input type="radio" name="idolo" value="Alex">
+                    </div>
+                </label>
+
+                <label id="div_idolo_dudu">
+                    <div class="div_input_idolo">
+                        <h3>Dudu</h3>
+                        <input type="radio" name="idolo" value="Dudu">
+                    </div>
+                </label>
+
+                <label id="div_idolo_edmundo">
+                    <div class="div_input_idolo">
+                        <h3>Edmundo</h3>
+                        <input type="radio" name="idolo" value="Edmundo">
+                    </div>
+                </label>
+
+                <label id="div_idolo_evair">
+                    <div class="div_input_idolo">
+                        <h3>Evair</h3>
+                        <input type="radio" name="idolo" value="Evair">
+                    </div>
+                </label>
+
+                <label id="div_idolo_marcos">
+                    <div class="div_input_idolo">
+                        <h3>Marcos</h3>
+                        <input type="radio" name="idolo" value="Marcos">
+                    </div>
+                </label>
+
+                <label id="div_idolo_veiga">
+                    <div class="div_input_idolo">
+                        <h3>Raphael Veiga</h3>
+                        <input type="radio" name="idolo" value="Raphael Veiga">
+                    </div>
+                </label>
+            </form>
+        </div>
+    </div>
+
     <div class="div_botao">
         <button onclick="inserir()">inserir</button>
     </div>
@@ -153,16 +211,24 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
         var jogadorVar = select_jogador.value;
-        var formacaoVar = select_formacao.value;
         var camisetaVar = "";
+        var formacaoVar = select_formacao.value;
+        var idoloVar = "";
         var usuarioVar = sessionStorage.ID_USUARIO;
 
-        var radios = document.getElementsByName("camiseta");
+        var radiosCamiseta = document.getElementsByName("camiseta");
+        var radiosIdolo = document.getElementsByName("idolo");
 
+        for (var i = 0; i < radiosCamiseta.length; i++) {
+            if (radiosCamiseta[i].checked) {
+                camisetaVar = radiosCamiseta[i].value;
+                break;
+            }
+        }
 
-        for (var i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                camisetaVar = radios[i].value;
+        for (var i = 0; i < radiosIdolo.length; i++) {
+            if (radiosIdolo[i].checked) {
+                idoloVar = radiosIdolo[i].value;
                 break;
             }
         }
@@ -171,7 +237,8 @@
         if (
             jogadorVar == "" ||
             camisetaVar == "" ||
-            formacaoVar == ""
+            formacaoVar == "" ||
+            idoloVar == ""
         ) {
 
             alert("Preencha os campos! Não deixe eles em branco")
@@ -182,6 +249,7 @@
             jogadorServer: jogadorVar,
             camisetaServer: camisetaVar,
             formacaoServer: formacaoVar,
+            idoloServer: idoloVar,
             usuarioServer: usuarioVar
         });
 
@@ -198,7 +266,8 @@
                 usuarioServer: usuarioVar,
                 jogadorServer: jogadorVar,
                 camisetaServer: camisetaVar,
-                formacaoServer: formacaoVar
+                formacaoServer: formacaoVar,
+                idoloServer: idoloVar
             }),
         })
             .then(function (resposta) {

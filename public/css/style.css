@@ -161,7 +161,6 @@ header button {
 
 .img_saiba_objetivo {
     width: 40em;
-    border-radius: 20px;
 }
 
 .img_saiba_palmeiras {
@@ -172,7 +171,10 @@ header button {
 .img_sobre_mim {
     width: 20em;
     height: auto;
-    border-radius: 15px;
+}
+
+.img_sobre_mim {
+    box-shadow: 15px 20px rgba(0, 0, 0, 0.356);
 }
 
 .p_sobre {
@@ -244,7 +246,6 @@ header button {
 }
 
 .div_info_idolos img{
-    border-radius: 20px;
     box-shadow: 15px 20px rgba(0, 0, 0, 0.356);
 }
 

@@ -15,4 +15,8 @@ router.get("/obterDadosFormacoes", function (req, res) {
     respostasController.obterDadosFormacoes(req, res);
 })
 
+router.get("/obterDadosIdolos", function (req, res) {
+    respostasController.obterDadosIdolos(req, res);
+})
+
 module.exports = router;
