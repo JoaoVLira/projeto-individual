@@ -27,27 +27,33 @@
   <a href="../index.html"><img src="../assets/icon/icon_sair.png" alt=""></a>
 </header>
 
-<body onload="obterDadosJogadores(); obterDadosCamisas(); obterDadosFormacoes(); obterDadosIdolos();">
+<body onload="obterDadosKpi(); obterDadosJogadores(); obterDadosCamisas(); obterDadosFormacoes(); obterDadosIdolos();">
   <!-- Chamando a função obterDados ao carregar a página -->
   <div class="div_container_graficos">
 
     <div>
       <div id="div_kpi">
         <h3>Seu jogador Favorito</h3>
+        <p id="respostaJogador"></p>
       </div>
 
       <div id="div_kpi">
         <h3>Sua Formação favorita</h3>
+        <p id="respostaFormacao"></p>
       </div>
 
       <div id="div_kpi">
         <h3>Seu uniforme favorito</h3>
+        <p id="respostaUniforme"></p>
       </div>
 
       <div id="div_kpi">
         <h3>Seu ídolo favorito</h3>
+        <p id="respostaIdolo"></p>
       </div>
     </div>
+
+
 
     <div class="div_jogadores_formacoes">
       <div>
@@ -77,19 +83,55 @@
 
   </div>
 
-
-
-
 </body>
 
 </html>
 <script>
 
+  function obterDadosKpi() {
+    const idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/respostas/obterDadosKpi?idUsuario=${idUsuario}`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (respostas) {
+        if (respostas.length > 0) {
+          var respostaUsuario = respostas[0];
+          document.getElementById("respostaJogador").innerHTML = respostaUsuario.jogador_favorito;
+          document.getElementById("respostaFormacao").innerHTML = respostaUsuario.formacao_favorita;
+          document.getElementById("respostaUniforme").innerHTML = respostaUsuario.camiseta_favorita;
+          document.getElementById("respostaIdolo").innerHTML = respostaUsuario.idolo_favorito;
+        }
+      })
+      .catch(function (erro) {
+        console.error("Erro ao carregar respostas:", erro);
+      });
+  }
+
+  function obterQtdRespostas() {
+    fetch(`/respostas/obterQtdRespostas`)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (respostas) {
+        if (respostas.length > 0) {
+          var respostaUsuario = respostas[0];
+          document.getElementById("respostaJogador").innerHTML = respostaUsuario.jogador_favorito;
+          document.getElementById("respostaFormacao").innerHTML = respostaUsuario.formacao_favorita;
+          document.getElementById("respostaUniforme").innerHTML = respostaUsuario.camiseta_favorita;
+          document.getElementById("respostaIdolo").innerHTML = respostaUsuario.idolo_favorito;
+        }
+      })
+      .catch(function (erro) {
+        console.error("Erro ao carregar respostas:", erro);
+      });
+  }
+
   // Função chamada ao carregar a página para obter e processar os dados
   function obterDadosJogadores() {
     // Aqui seria a função que obteria os dados do banco de dados
     // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
-
     fetch('/respostas/obterDadosJogadores')
       .then(function (response) {
         return response.json();
@@ -100,7 +142,6 @@
       .catch(function (err) {
         console.log(err);
       })
-
   }
 
   function obterDadosCamisas() {

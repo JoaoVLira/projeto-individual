@@ -22,14 +22,11 @@ function inserir(req, res) {
         res.status(400).send("Seu ídolo favorito está undefined!");
     } else {
 
-        // Verifica se o usuário já respondeu o questionário
         questionarioModel.verificarRespostaExistente(usuario)
             .then(function (resposta) {
                 if (resposta.length > 0) {
-                    // Já existe resposta → faz UPDATE
                     return questionarioModel.atualizar(usuario, jogador, camiseta, formacao, idolo);
                 } else {
-                    // Ainda não respondeu → faz INSERT
                     return questionarioModel.inserir(usuario, jogador, camiseta, formacao, idolo);
                 }
             })

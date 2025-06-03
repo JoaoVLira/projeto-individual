@@ -40,10 +40,20 @@ function obterDadosIdolos() {
     return database.executar(instrucao);
 }
 
+function obterDadosKpi(idUsuario){
+    var instrucao = `
+        SELECT jogador_favorito, camiseta_favorita, formacao_favorita, idolo_favorito
+        FROM respostas
+        WHERE fk_usuario = ${idUsuario};
+    `;
+    return database.executar(instrucao);
+}
+
 
 module.exports = {
     obterDadosJogadores,
     obterDadosCamisas,
     obterDadosFormacoes,
-    obterDadosIdolos
+    obterDadosIdolos,
+    obterDadosKpi
 };

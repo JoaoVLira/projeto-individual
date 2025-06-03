@@ -19,4 +19,8 @@ router.get("/obterDadosIdolos", function (req, res) {
     respostasController.obterDadosIdolos(req, res);
 })
 
+router.get("/obterDadosKpi", function (req, res){
+    respostasController.obterDadosKpi(req, res);
+})
+
 module.exports = router;

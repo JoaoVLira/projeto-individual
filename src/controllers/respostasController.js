@@ -44,11 +44,24 @@ function obterDadosIdolos(req, res) {
         });
 }
 
+function obterDadosKpi(req, res){
+    var idUsuario = req.query.idUsuario
+
+    respostasModel.obterDadosKpi(idUsuario)
+        .then(function (resultado){
+            res.status(200).json(resultado);
+        })
+        .catch(function (erro){
+            console.error("Erro ao trazer as preferências do usuário: ", erro);
+            res.status(500).json(erro.sqlMessage);
+        })
+}
 
 
 module.exports = {
     obterDadosJogadores,
     obterDadosCamisas,
     obterDadosFormacoes,
-    obterDadosIdolos
+    obterDadosIdolos,
+    obterDadosKpi
 }

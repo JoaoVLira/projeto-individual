@@ -390,19 +390,30 @@ button:hover {
 }
 
 .div_jogadores_formacoes {
+    width: auto;
     display: flex;
     gap: 20px;
 }
 
+
 #div_kpi {
-    width: 30em;
-    height: 8em;
+    width: 25em;
+    height: auto;
     background-color: white;
-    margin: 50px;
+    margin: 40px;
     border-radius: 20px;
+    text-align: center;
+    justify-content: center;
 }
 
 #div_kpi h3 {
     color: #004e2b;
+    font-weight: bold;
     text-align: center;
+}
+
+#div_kpi p {
+    padding: 20px;
+    font-size: 20px;
+    color: #063022;
 }
